@@ -33,9 +33,9 @@ const FormikApp = withFormik({
         console.log(values);
     },
     validationSchema: Yup.object({
-        name: Yup.string().required(),
-        email: Yup.string().email().required(),
-        password: Yup.string().min(9).required(),
+        name: Yup.string("Your name cannot contain numbers").required("Full name is required"),
+        email: Yup.string().email("It is not a valid email.").required("Email is required"),
+        password: Yup.string().min(9,"Your password must be 9 characters or longer").required("Password is required."),
     })
 })(App);
 

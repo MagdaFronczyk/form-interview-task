@@ -1,10 +1,13 @@
-import React, {Component} from "react";
+import React from "react";
 import "./App.css";
 import {withFormik, Form, Field} from "formik";
+import * as Yup from 'yup';
 
-const App = () => (
+const App = ({}) => (
     <Form>
-        <Field type="text" name="name" placeholder="Full Name"/>
+        <div>
+            <Field type="text" name="name" placeholder="Full Name"/>
+        </div>
         <Field type="email" name="email" placeholder="Email"/>
         <Field type="password" name="password" placeholder="Password"/>
         <button type="submit">Create Account</button>
@@ -19,9 +22,14 @@ const FormikApp = withFormik({
             password: ""
         };
     },
-    handleSubmit(values){
+    handleSubmit(values) {
         console.log(values);
-    }
+    },
+    validationSchema: Yup.object({
+        name: Yup.string().required(),
+        email: Yup.string().email().required(),
+        password: Yup.string().required(),
+    })
 })(App);
 
 export default FormikApp;

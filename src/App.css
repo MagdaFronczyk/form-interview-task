@@ -2,6 +2,10 @@
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .form_container {
@@ -13,12 +17,64 @@
 
 .form {
     background-color: #EEEEF0;
-    height: 50vh;
-    width: 50vh;
+    height: 250px;
+    width: 325px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     flex-direction: column;
     border-radius: 20px;
     border: 2px solid #D0D0DA;
+    padding: 20px 0;
+}
+
+.input {
+    font-size: 16px;
+    padding: 20px 15px;
+    border: none;
+    border-radius: 10px;
+    width: 300px;
+    height: 56px;
+    box-shadow: 5px 4px 8px 0px rgba(0, 0, 0, 0.18);
+    font-family: 'Lato', sans-serif;
+}
+
+.input:focus {
+    box-shadow: inset 5px 4px 8px 0px rgba(0, 0, 0, 0.18);
+    outline: none;
+    color: #65657E;
+}
+
+.floating_label {
+    position: relative;
+}
+
+.floating_label label {
+    font-size: 10px;
+    position: absolute;
+    top: 20px;
+    left: 15px;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.floating_label .input:not(:placeholder-shown) {
+    padding: 28px 15px 12px 15px;
+}
+
+.floating_label .input:not(:placeholder-shown) + label {
+    transform: translateY(-10px);
+    opacity: 0.7;
+}
+
+button {
+    margin-top: 10px;
+    width: 320px;
+    border-radius: 15px;
+    height: 56px;
+    background-color: #6E6EF0;
+    border: none;
+    font-family: 'Lato', sans-serif;
+    color: #ffffff;
+    font-size: 16px;
 }

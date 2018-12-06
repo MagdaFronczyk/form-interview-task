@@ -12,18 +12,20 @@ const App = ({
     <div className="container">
         <Form className="form_container">
             <div className="form">
-                <div id="floatContainer" className="float_container">
-                    <label htmlFor="floatField"/>
+                <div className="floating_label">
                     {touched.name && errors.name && <p>{errors.name}</p>}
-                    <Field type="text" name="name" placeholder="Full Name" id="floatField"/>
+                    <Field type="text" name="name" placeholder="Full Name" className="input"/>
+                    <label htmlFor="name">Full Name</label>
                 </div>
-                <div>
+                <div className="floating_label">
                     {touched.email && errors.email && <p>{errors.email}</p>}
-                    <Field type="email" name="email" placeholder="Email"/>
+                    <Field type="email" name="email" placeholder="Email" className="input"/>
+                    <label htmlFor="name">Email</label>
                 </div>
-                <div>
+                <div className="floating_label">
                     {touched.password && errors.password && <p>{errors.password}</p>}
-                    <Field type="password" name="password" placeholder="Password"/>
+                    <Field type="password" name="password" placeholder="Password" className="input"/>
+                    <label htmlFor="name">Password</label>
                 </div>
             </div>
             <button type="submit" disabled={isSubmitting}>Create Account</button>

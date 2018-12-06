@@ -1,13 +1,27 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, {Component} from "react";
+import "./App.css";
+import {withFormik, Form, Field} from "formik";
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-      </div>
-    );
-  }
-}
+const App = () => (
+    <Form>
+        <Field type="text" name="name" placeholder="Full Name"/>
+        <Field type="email" name="email" placeholder="Email"/>
+        <Field type="password" name="password" placeholder="Password"/>
+        <button type="submit">Create Account</button>
+    </Form>
+);
 
-export default App;
+const FormikApp = withFormik({
+    mapPropsToValues() {
+        return {
+            name: "",
+            email: "",
+            password: ""
+        };
+    },
+    handleSubmit(values){
+        console.log(values);
+    }
+})(App);
+
+export default FormikApp;

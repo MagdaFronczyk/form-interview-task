@@ -16,6 +16,7 @@ const App = ({
                     <Field type="text"
                            name="name"
                            placeholder="Full Name"
+                           required
                            className="input"/>
                     <div className="floating_element">
                         <label htmlFor="name"
@@ -25,7 +26,7 @@ const App = ({
                         {
                             touched.name &&
                             errors.name &&
-                            <p className="error_message">`{errors.name}</p>
+                            <p className="error_message">{errors.name}</p>
                         }
                     </div>
                 </div>
@@ -33,6 +34,7 @@ const App = ({
                     <Field type="email"
                            name="email"
                            placeholder="Email"
+                           required
                            className="input"/>
                     <div className="floating_element">
                         <label htmlFor="name"
@@ -49,7 +51,9 @@ const App = ({
                 <div className="floating_label">
                     <Field type="password"
                            name="password"
+                           pattern=".{8,}"
                            placeholder="Password"
+                           required
                            className="input"/>
                     <div className="floating_element">
                         <label htmlFor="name"
@@ -91,15 +95,15 @@ export default withFormik({
     validationSchema: Yup.object({
         name: Yup
             .string("name cannot contain numbers")
-            .required("Full name is required"),
+            .required(null),
         email: Yup
             .string()
             .email("not a valid email")
-            .required("Email is required"),
+            .required(null),
         password: Yup
             .string()
             .min(8, "min 8 characters")
-            .required("Password is required"),
+            .required(null),
     })
 })(App);
 

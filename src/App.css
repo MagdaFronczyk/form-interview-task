@@ -45,6 +45,11 @@
     color: #65657E;
 }
 
+.input:invalid:not(:focus):not(:placeholder-shown) {
+    border: 2px solid #EB7675;
+    color: #EB7675;
+}
+
 .floating_label {
     position: relative;
     font-weight: bold;

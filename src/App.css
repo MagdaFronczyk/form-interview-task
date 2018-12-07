@@ -50,26 +50,33 @@
     font-weight: bold;
 }
 
-.floating_label .label, .error_message {
+.floating_label .floating_element {
     font-size: 10px;
     position: absolute;
     top: 20px;
     left: 15px;
     opacity: 0;
     transition: all 0.5s ease;
+    display: flex;
 }
 
 .floating_label .input:not(:placeholder-shown) {
     padding: 28px 15px 12px 15px;
 }
 
-.floating_label .input:not(:placeholder-shown) + .label, .error_message {
+.floating_label .input:not(:placeholder-shown) + .floating_element{
     transform: translateY(-10px);
     opacity: 1;
 }
 
 .error_message {
     color: #EB7675;
+    padding-left: 2px;
+}
+
+.error_message:before {
+    content:"• ";
+    color: #9D9DB3;
 }
 
 .submit_button {

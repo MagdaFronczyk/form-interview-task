@@ -13,49 +13,55 @@ const App = ({
         <Form className="form_container">
             <div className="form">
                 <div className="floating_label">
-                    {
-                        touched.name &&
-                        errors.name &&
-                        <p className="error_message">{errors.name}</p>
-                    }
                     <Field type="text"
                            name="name"
                            placeholder="Full Name"
                            className="input"/>
-                    <label htmlFor="name"
-                           className="label">
-                        Full Name
-                    </label>
+                    <div className="floating_element">
+                        <label htmlFor="name"
+                               className="label">
+                            Full Name
+                        </label>
+                        {
+                            touched.name &&
+                            errors.name &&
+                            <p className="error_message">`{errors.name}</p>
+                        }
+                    </div>
                 </div>
                 <div className="floating_label">
-                    {
-                        touched.email &&
-                        errors.email &&
-                        <p className="error_message">{errors.email}</p>
-                    }
                     <Field type="email"
                            name="email"
                            placeholder="Email"
                            className="input"/>
-                    <label htmlFor="name"
-                           className="label">
-                        Email
-                    </label>
+                    <div className="floating_element">
+                        <label htmlFor="name"
+                               className="label">
+                            Email
+                        </label>
+                        {
+                            touched.email &&
+                            errors.email &&
+                            <p className="error_message">{errors.email}</p>
+                        }
+                    </div>
                 </div>
                 <div className="floating_label">
-                    {
-                        touched.password &&
-                        errors.password &&
-                        <p className="error_message">{errors.password}</p>
-                    }
                     <Field type="password"
                            name="password"
                            placeholder="Password"
                            className="input"/>
-                    <label htmlFor="name"
-                           className="label">
-                        Password
-                    </label>
+                    <div className="floating_element">
+                        <label htmlFor="name"
+                               className="label">
+                            Password
+                        </label>
+                        {
+                            touched.password &&
+                            errors.password &&
+                            <p className="error_message">{errors.password}</p>
+                        }
+                    </div>
                 </div>
             </div>
             <button type="submit"
@@ -68,7 +74,7 @@ const App = ({
 
 );
 
-const FormikApp = withFormik({
+export default withFormik({
     mapPropsToValues() {
         return {
             name: "",
@@ -84,17 +90,23 @@ const FormikApp = withFormik({
     },
     validationSchema: Yup.object({
         name: Yup
-            .string("Your name cannot contain numbers")
+            .string("name cannot contain numbers")
             .required("Full name is required"),
         email: Yup
             .string()
-            .email("It is not a valid email.")
+            .email("not a valid email")
             .required("Email is required"),
         password: Yup
             .string()
-            .min(8, "Your password must be 9 characters or longer")
+            .min(8, "min 8 characters")
             .required("Password is required"),
     })
 })(App);
 
-export default FormikApp;
+App.propTypes = {
+    values: PropTypes.shape({
+        email: PropTypes.string,
+        name: PropTypes.string,
+        password: PropTypes.string
+    }),
+};

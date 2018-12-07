@@ -18,7 +18,7 @@
 .form {
     background-color: #EEEEF0;
     height: 250px;
-    width: 325px;
+    width: 345px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -35,8 +35,8 @@
     border-radius: 10px;
     width: 300px;
     height: 56px;
-    box-shadow: 5px 4px 8px 0px rgba(0, 0, 0, 0.18);
-    font-family: 'Lato', sans-serif;
+    box-shadow: 1px 1px 6px 0 rgba(0, 0, 0, 0.18);
+    font-family: inherit;
 }
 
 .input:focus {
@@ -47,29 +47,34 @@
 
 .floating_label {
     position: relative;
+    font-weight: bold;
 }
 
-.floating_label label {
+.floating_label .label, .error_message {
     font-size: 10px;
     position: absolute;
     top: 20px;
     left: 15px;
     opacity: 0;
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
 }
 
 .floating_label .input:not(:placeholder-shown) {
     padding: 28px 15px 12px 15px;
 }
 
-.floating_label .input:not(:placeholder-shown) + label {
+.floating_label .input:not(:placeholder-shown) + .label, .error_message {
     transform: translateY(-10px);
-    opacity: 0.7;
+    opacity: 1;
 }
 
-button {
+.error_message {
+    color: #EB7675;
+}
+
+.submit_button {
     margin-top: 10px;
-    width: 320px;
+    width: 345px;
     border-radius: 15px;
     height: 56px;
     background-color: #6E6EF0;
@@ -77,4 +82,5 @@ button {
     font-family: 'Lato', sans-serif;
     color: #ffffff;
     font-size: 16px;
+    cursor: pointer;
 }

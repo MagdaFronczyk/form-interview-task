@@ -39,17 +39,13 @@
     font-family: inherit;
 }
 
-.input:placeholder-shown .error_message {
-    opacity: 1;
-}
-
 .input:focus {
     box-shadow: inset 5px 4px 8px 0 rgba(0, 0, 0, 0.18);
     outline: none;
     color: #65657E;
 }
 
-.input:invalid:not(:focus):not(:placeholder-shown) {
+.error {
     border: 2px solid #EB7675;
     color: #EB7675;
 }

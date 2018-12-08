@@ -65,11 +65,11 @@
     display: flex;
 }
 
-.floating_label .input:not(:placeholder-shown) {
+.floating_label .active {
     padding: 28px 15px 12px 15px;
 }
 
-.floating_label .input:not(:placeholder-shown) + .floating_element{
+.floating_label .active + .floating_element{
     transform: translateY(-10px);
     opacity: 1;
 }

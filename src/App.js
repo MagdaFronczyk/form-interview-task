@@ -17,7 +17,7 @@ const App = ({
                            name="name"
                            placeholder="Full Name"
                            className={
-                               errors.name && touched.name ? 'input error' : 'input'
+                               errors.password && touched.password ? 'input error active' : 'input'
                            }/>
                     <div className="floating_element">
                         <label htmlFor="name" className="label">Full Name</label>
@@ -33,7 +33,7 @@ const App = ({
                            name="email"
                            placeholder="Email"
                            className={
-                               errors.email && touched.email ? 'input error' : 'input'
+                               errors.password && touched.password ? 'input error active' : 'input'
                            }/>
                     <div className="floating_element">
                         <label htmlFor="name" className="label">Email</label>
@@ -47,10 +47,9 @@ const App = ({
                 <div className="floating_label">
                     <Field type="password"
                            name="password"
-                           pattern=".{8,}"
                            placeholder="Password"
                            className={
-                               errors.password && touched.password ? 'input error' : 'input'
+                               errors.password && touched.password ? 'input error active' : 'input'
                            }
                     />
                     <div className="floating_element">

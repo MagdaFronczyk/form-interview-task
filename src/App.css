@@ -39,8 +39,12 @@
     font-family: inherit;
 }
 
+.input:placeholder-shown .error_message {
+    opacity: 1;
+}
+
 .input:focus {
-    box-shadow: inset 5px 4px 8px 0px rgba(0, 0, 0, 0.18);
+    box-shadow: inset 5px 4px 8px 0 rgba(0, 0, 0, 0.18);
     outline: none;
     color: #65657E;
 }

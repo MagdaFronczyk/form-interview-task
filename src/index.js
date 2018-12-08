@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import FormikApp from './App';
+import App from './App';
 
-ReactDOM.render(<FormikApp />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));

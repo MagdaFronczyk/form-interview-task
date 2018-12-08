@@ -16,13 +16,9 @@ const App = ({
                     <Field type="text"
                            name="name"
                            placeholder="Full Name"
-                           required
                            className="input"/>
                     <div className="floating_element">
-                        <label htmlFor="name"
-                               className="label">
-                            Full Name
-                        </label>
+                        <label htmlFor="name" className="label">Full Name</label>
                         {
                             touched.name &&
                             errors.name &&
@@ -34,13 +30,9 @@ const App = ({
                     <Field type="email"
                            name="email"
                            placeholder="Email"
-                           required
                            className="input"/>
                     <div className="floating_element">
-                        <label htmlFor="name"
-                               className="label">
-                            Email
-                        </label>
+                        <label htmlFor="name" className="label">Email</label>
                         {
                             touched.email &&
                             errors.email &&
@@ -53,13 +45,9 @@ const App = ({
                            name="password"
                            pattern=".{8,}"
                            placeholder="Password"
-                           required
                            className="input"/>
                     <div className="floating_element">
-                        <label htmlFor="name"
-                               className="label">
-                            Password
-                        </label>
+                        <label htmlFor="name" className="label">Password</label>
                         {
                             touched.password &&
                             errors.password &&
@@ -95,15 +83,15 @@ export default withFormik({
     validationSchema: Yup.object({
         name: Yup
             .string("name cannot contain numbers")
-            .required(null),
+            .required("full name is required"),
         email: Yup
             .string()
             .email("not a valid email")
-            .required(null),
+            .required("email is required"),
         password: Yup
             .string()
             .min(8, "min 8 characters")
-            .required(null),
+            .required("password is required"),
     })
 })(App);
 

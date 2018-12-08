@@ -17,7 +17,7 @@ const App = ({
                            name="name"
                            placeholder="Full Name"
                            className={
-                               errors.password && touched.password ? 'input error active' : 'input'
+                               errors.name && touched.name ? 'input error active' : 'input'
                            }/>
                     <div className="floating_element">
                         <label htmlFor="name" className="label">Full Name</label>
@@ -33,7 +33,7 @@ const App = ({
                            name="email"
                            placeholder="Email"
                            className={
-                               errors.password && touched.password ? 'input error active' : 'input'
+                               errors.email && touched.email ? 'input error active' : 'input'
                            }/>
                     <div className="floating_element">
                         <label htmlFor="name" className="label">Email</label>

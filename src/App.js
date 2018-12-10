@@ -3,11 +3,12 @@ import "./App.css";
 import {withFormik, Form, Field} from "formik";
 import * as Yup from "yup";
 import PropTypes from "prop-types";
+import classNames from "classnames";
 
 const App = ({
                  errors,
                  touched,
-                 isSubmitting
+                 isSubmitting,
              }) => (
     <div className="container">
         <Form className="form_container">
@@ -17,7 +18,9 @@ const App = ({
                            name="name"
                            placeholder="Full Name"
                            className={
-                               errors.name && touched.name ? 'input error active' : 'input'
+                               classNames(
+                                   "input", {"error": errors.name && touched.name}, {"active": touched.name}
+                               )
                            }/>
                     <div className="floating_element">
                         <label htmlFor="name" className="label">Full Name</label>
@@ -33,7 +36,9 @@ const App = ({
                            name="email"
                            placeholder="Email"
                            className={
-                               errors.email && touched.email ? 'input error active' : 'input'
+                               classNames(
+                                   "input", {"error": errors.email && touched.email}, {"active": touched.email}
+                               )
                            }/>
                     <div className="floating_element">
                         <label htmlFor="name" className="label">Email</label>
@@ -49,7 +54,9 @@ const App = ({
                            name="password"
                            placeholder="Password"
                            className={
-                               errors.password && touched.password ? 'input error active' : 'input'
+                               classNames(
+                                   "input", {"error": errors.password && touched.password}, {"active": touched.password}
+                               )
                            }
                     />
                     <div className="floating_element">
@@ -80,9 +87,10 @@ export default withFormik({
             password: "",
         };
     },
-    handleSubmit(values, {resetForm}) {
+    handleSubmit(values, {resetForm,setSubmitting}) {
         setTimeout(() => {
             console.log(values);
+            setSubmitting(false);
             resetForm();
         }, 500);
     },

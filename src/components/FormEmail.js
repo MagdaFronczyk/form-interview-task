@@ -28,7 +28,7 @@ const FormEmail = ({
     </div>
 );
 
-const FormikApp = withFormik({
+export default withFormik({
     mapPropsToValues() {
         return {
             email: "",
@@ -41,5 +41,3 @@ const FormikApp = withFormik({
             .required("email is required")
     })
 })(FormEmail);
-
-export default FormikApp;

@@ -29,7 +29,7 @@ const FormPassword = ({
     </div>
 );
 
-const FormikApp = withFormik({
+export default withFormik({
     mapPropsToValues() {
         return {
             password: "",
@@ -42,5 +42,3 @@ const FormikApp = withFormik({
             .required("password is required"),
     })
 })(FormPassword);
-
-export default FormikApp;

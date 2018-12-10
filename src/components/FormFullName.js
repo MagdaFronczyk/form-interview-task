@@ -28,7 +28,7 @@ const FormName = ({
     </div>
 );
 
-const FormikApp = withFormik({
+export default withFormik({
     mapPropsToValues() {
         return {
             name: ""
@@ -40,5 +40,3 @@ const FormikApp = withFormik({
             .required("full name is required"),
     })
 })(FormName);
-
-export default FormikApp;

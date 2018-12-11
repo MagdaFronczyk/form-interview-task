@@ -3,11 +3,9 @@ import "../App.css";
 import {withFormik, Form} from "formik";
 import * as Yup from "yup";
 import PropTypes from "prop-types";
-import FormName from "./FormFullName";
-import FormEmail from "./FormEmail";
-import FormPassword from "./FormPassword"
+import FormInput from "./FormInput";
 
-const App = ({
+const App = (props,{
                  errors,
                  touched,
                  isSubmitting,
@@ -15,9 +13,9 @@ const App = ({
     <div className="container">
         <Form className="form_container">
             <div className="form">
-                <FormName/>
-                <FormEmail/>
-                <FormPassword/>
+                <FormInput name="name" placeholder="Full name" />
+                <FormInput name="email" placeholder="Email" />
+                <FormInput name="password" placeholder="Password"/>
             </div>
             <button type="submit"
                     disabled={isSubmitting}

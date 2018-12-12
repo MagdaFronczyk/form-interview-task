@@ -9,15 +9,15 @@ const App = (props, {
     errors,
     touched,
     isSubmitting,
-    handleSubmit,
+    handleChange,
     values
 }) => (
     <div className="container">
         <Form className="form_container">
             <div className="form">
-                <FormInput name="name" placeholder="Full name" onSubmit={handleSubmit} value={values.name}/>
-                <FormInput name="email" placeholder="Email" onSubmit={handleSubmit} value={values.email}/>
-                <FormInput name="password" placeholder="Password" onSubmit={handleSubmit} value={values.password}/>
+                <FormInput name="name" placeholder="Full name" onChange={handleChange} value={values.name}/>
+                <FormInput name="email" placeholder="Email" onChange={handleChange} value={values.email}/>
+                <FormInput name="password" placeholder="Password" onChange={handleChange} value={values.password}/>
             </div>
             <button type="submit"
                     disabled={isSubmitting}

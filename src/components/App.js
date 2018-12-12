@@ -5,17 +5,19 @@ import * as Yup from "yup";
 import PropTypes from "prop-types";
 import FormInput from "./FormInput";
 
-const App = (props,{
-                 errors,
-                 touched,
-                 isSubmitting,
-             }) => (
+const App = (props, {
+    errors,
+    touched,
+    isSubmitting,
+    handleSubmit,
+    values
+}) => (
     <div className="container">
         <Form className="form_container">
             <div className="form">
-                <FormInput name="name" placeholder="Full name" />
-                <FormInput name="email" placeholder="Email" />
-                <FormInput name="password" placeholder="Password"/>
+                <FormInput name="name" placeholder="Full name" onSubmit={handleSubmit} value={values.name}/>
+                <FormInput name="email" placeholder="Email" onSubmit={handleSubmit} value={values.email}/>
+                <FormInput name="password" placeholder="Password" onSubmit={handleSubmit} value={values.password}/>
             </div>
             <button type="submit"
                     disabled={isSubmitting}

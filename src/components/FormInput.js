@@ -1,6 +1,5 @@
 import React from "react";
 import "../App.css";
-import {Field} from "formik";
 import classNames from "classnames";
 
 export default (props, {
@@ -11,7 +10,7 @@ export default (props, {
     const placeholder = props.placeholder;
     return (
         <div className="floating_label">
-            <Field type="text"
+            <input type="text"
                    name={name}
                    placeholder={placeholder}
                    className={

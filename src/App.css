@@ -55,7 +55,7 @@
     font-weight: bold;
 }
 
-.floating_label .floating_element {
+.floating_element {
     font-size: 10px;
     position: absolute;
     top: 20px;

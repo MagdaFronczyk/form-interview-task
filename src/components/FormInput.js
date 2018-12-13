@@ -2,12 +2,11 @@ import React from "react";
 import "../App.css";
 import classNames from "classnames";
 
-export default (props, {
-    errors,
-    touched
-}) => {
+export default (props) => {
     const name = props.name;
     const placeholder = props.placeholder;
+    const errors = props.errors;
+    const touched = props.touched;
     return (
         <div className="floating_label">
             <input type="text"
@@ -15,15 +14,15 @@ export default (props, {
                    placeholder={placeholder}
                    className={
                        classNames(
-                           "input", {"error": errors.name && touched.name}, {"active": touched.name}
+                           "input", {"error": errors && touched}, {"active": touched}
                        )
                    }/>
             <div className="floating_element">
-                <label htmlFor={props.name} className="label">Full Name</label>
+                <label htmlFor={name} className="label">{name}</label>
                 {
-                    touched.name &&
-                    errors.name &&
-                    <p className="error_message">{errors.name}</p>
+                    touched &&
+                    errors &&
+                    <p className="error_message">{errors}</p>
                 }
             </div>
         </div>
